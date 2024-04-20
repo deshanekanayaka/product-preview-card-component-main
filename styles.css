@@ -1,0 +1,155 @@
+:root {
+  --Dark-cyan: hsl(158, 36%, 37%);
+  --Darker-cyan: hsl(158, 36%, 27%);
+  --Cream: hsl(30, 38%, 92%);
+
+  --Very-dark-blue: hsl(212, 21%, 14%);
+  --Dark-grayish-blue: hsl(228, 12%, 48%);
+  --White: hsl(0, 0%, 100%);
+
+  --font-base: "Montserrat", sans-serif;
+  --font-accent: "Fraunces", serif;
+  --fw-regular: 500;
+  --fe-bold: 700;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  5. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  6. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+  7. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/* General Styling */
+body {
+  font-family: var(--font-base);
+  font-weight: var(--fw-regular);
+  background-color: var(--Cream);
+  font-size: 0.875rem;
+
+  display: grid;
+  place-content: center;
+  /* Give min height to center items */
+  min-height: 100vh;
+  margin: 1rem;
+}
+/* Utilities */
+.flex-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+/* For people with special needs  */
+.visually-hidden:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+.product {
+  --product-padding: 1.5rem;
+  background-color: var(--White);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  display: grid;
+  max-width: 600px;
+}
+@media (min-width: 600px) {
+  .product {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.product__content {
+  padding: var(--product-padding);
+  display: grid;
+  gap: 1rem;
+  padding: 1.5rem;
+}
+.product__category {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.8125rem;
+}
+.product__title {
+  font-family: var(--font-accent);
+  font-size: 2rem;
+  font-weight: var(--fe-bold);
+}
+.procuct__price {
+  font-size: 2rem;
+  font-family: var(--font-accent);
+  color: var(--Dark-cyan);
+  font-weight: var(--fe-bold);
+}
+.button {
+  background-color: var(--Dark-cyan);
+  color: var(--White);
+  cursor: pointer;
+  padding: 0.5rem 1.5rem;
+  border: 0;
+  text-decoration: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: var(--fe-bold);
+  font-size: 0.925rem;
+  border-radius: 0.5rem;
+}
+.button:hover {
+  background-color: var(--Darker-cyan);
+}
+.button[data-icon="shopping-cart"]::before {
+  content: "";
+  width: 15px;
+  height: 16px;
+  background-image: url(images/icon-cart.svg);
+}
